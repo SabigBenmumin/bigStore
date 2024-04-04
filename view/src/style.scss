@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+}
+
+.home {
+  background-color: rgb(0, 0, 0);
+  height: 100vh;
+  .container {
+    header {
+      border-bottom: 3px solid antiquewhite;
+      display: flex;
+      align-items: center;
+      margin: auto;
+      height: 10vh;
+      justify-content: space-evenly;
+      .title {
+        font-size: x-large;
+        color: antiquewhite;
+      }
+      .Newbutton {
+        background-color: rgb(44, 43, 43);
+        border-radius: 5px;
+        height: 30px;
+        .addbutton {
+          background-color: rgb(44, 43, 43);
+          text-decoration: none;
+          color: white;
+        }
+      }
+    }
+    .content {
+      display: flex;
+      background-color: rgb(16, 16, 16);
+      justify-content: center;
+      max-height: fit-content;
+      align-items: center;
+      margin: auto;
+      height: 80vh;
+      .cardscontainer {
+        display: flex;
+        border: solid antiquewhite;
+        border-radius: 10px;
+        align-self: center;
+        height: 70vh;
+        width: 110vh;
+        display: flex;
+        .card {
+          color: antiquewhite;
+        }
+      }
+    }
+    .footer {
+      display: flex;
+      margin: auto;
+      height: 9vh;
+      justify-content: center;
+    }
+  }
+}
+
+.formContainer {
+  background-color: rgb(0, 0, 0);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .formWrapper {
+    background-color: white;
+    padding: 20px 60px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    .logo {
+      color: black;
+      font-weight: bold;
+      font-size: 24px;
+      text-align: center;
+    }
+    .title {
+      color: black;
+      font-size: 12px;
+    }
+    form{
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      input{
+        padding: 15px;
+        border: none;
+        width: 250px;
+        border-bottom: 1px solid black;
+        &::placeholder{
+          color: rgb(175, 175, 175);
+        }
+      }
+      button{
+        background-color: black;
+        border-radius: 10px;
+        color: antiquewhite;
+        padding: 10px;
+        font-weight: bold;
+        bottom: none;
+        cursor: pointer;
+      }
+      label{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: black;
+        font-size: 12px;
+        cursor: pointer;
+
+        img{
+          width: 32px;
+        }
+      }
+    }
+  }
+}
