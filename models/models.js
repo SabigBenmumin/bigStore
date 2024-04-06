@@ -1,6 +1,6 @@
 import { Timestamp, addDoc, collection, deleteDoc, doc, setDoc } from "firebase/firestore";
 import { db, storage } from "./firebase";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { deleteObject, getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 export const createItem = async (item) => {
   const i_id = item._id;
@@ -46,4 +46,15 @@ export const UpdateStock = async(item, newStock) => {
         created: item.created,
         last_update: Timestamp.now(),
   })
+}
+
+
+export const  Delete = async(name) => {
+  const imgRef = ref(storage, name)
+  deleteObject(imgRef).then(() => {
+
+  }).catch((error) => {
+    
+  })
+
 }

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { handleUpdateStock } from "../../../controllers/submitController";
+import { handleDeleteItem } from "../../../controllers/deleteController";
 
 const Card = ({ item }) => {
   const [count, setCount] = useState(item.instock);
+  const id = item.i_id;
 
   const clickAdd = () => {
     setCount(count + 1);
@@ -11,6 +13,14 @@ const Card = ({ item }) => {
   const clickMi = () => {
     setCount(count - 1);
   };
+
+  const clickDelete = () => {
+    try{
+      handleDeleteItem(item.i_id, item.name)
+    }catch(err){
+      console.log(err)
+    }
+  }
 
   useEffect(() => {
     handleUpdateStock(item, count);
@@ -40,7 +50,7 @@ const Card = ({ item }) => {
             -
           </button>
           {/*<button className="editBtn">Edit</button>*/}
-          <button className="deleteBtn">Delete</button>
+          <button className="deleteBtn" onClick={clickDelete}>Delete</button>
         </div>
       </div>
     </div>

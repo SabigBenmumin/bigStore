@@ -8,6 +8,7 @@ const CardsContainer = () => {
   const itemsRef = collection(db, "items");
   //const ref = useRef();
 
+  /*
   useEffect(() => {
     const getItems = async () => {
       const data = await getDocs(itemsRef);
@@ -16,6 +17,26 @@ const CardsContainer = () => {
 
     getItems();
   }, []);
+  */
+
+  useEffect(() => {
+    const fetchData = async () => {
+      let list = [];
+
+      try {
+        const querySnapshot = await getDocs(collection(db, "items"));
+        querySnapshot.forEach((doc) => {
+          list.push(doc);
+        });
+        const data = await getDocs(itemsRef);
+        setItems(data.docs.map((doc) => ({ ...doc.data(), id: doc.i_id })));
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, []);
+
 
   return (
     <div className="cardscontainer">
