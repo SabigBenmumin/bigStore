@@ -1,5 +1,7 @@
 * {
   margin: 0;
+  scrollbar-color: black black;
+  scrollbar-width: none;
 }
 
 .home {
@@ -15,12 +17,13 @@
       justify-content: space-evenly;
       .title {
         font-size: x-large;
-        color: antiquewhite;
+        color: rgb(250, 235, 215);
       }
       .Newbutton {
         background-color: rgb(44, 43, 43);
         border-radius: 5px;
         height: 30px;
+        border: none;
         .addbutton {
           background-color: rgb(44, 43, 43);
           text-decoration: none;
@@ -35,25 +38,124 @@
       max-height: fit-content;
       align-items: center;
       margin: auto;
-      height: 80vh;
+      height: 90vh;
       .cardscontainer {
-        display: flex;
-        border: solid antiquewhite;
-        border-radius: 10px;
-        align-self: center;
+        flex-direction: column;
+        background-color: black;
         height: 70vh;
         width: 110vh;
         display: flex;
+        overflow-y: scroll;
+        scrollbar-color: rgb(250, 235, 215) black;
+        scrollbar-width: thin;
+
         .card {
-          color: antiquewhite;
+          position: relative;
+          display: flex;
+          flex-wrap: wrap;
+          align-self: end;
+          justify-content: space-between;
+          width: 700px;
+          height: 300px;
+          background: #fff;
+          margin: 20px;
+
+          .imgBox {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 33%;
+            height: 100%;
+            background: #212121;
+            transition: 0.3s linear;
+
+            img {
+              position: relative;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: auto;
+              height: 100%;
+              background: #212121;
+              transition: 0.3s linear;
+            }
+          }
+          .itemDetails {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 67%;
+            height: 100%;
+            box-sizing: border-box;
+            padding: 40px;
+            flex-direction: column;
+            justify-content: space-evenly;
+            h2 {
+              margin: 0;
+              padding: 0;
+              font-size: 2.4em;
+              line-height: 1em;
+              color: #444;
+              span {
+                font-size: 0.4em;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                color: #999;
+              }
+            }
+            h3 {
+              margin: 0;
+              padding: 0;
+              font-size: 2.5em;
+              color: #a2a2a2;
+              float: left;
+            }
+            .buttons {
+              display: flex;
+              justify-content: space-evenly;
+              margin-top: 20px;
+              width: 90%;
+              .ad {
+                background-color: #029f27;
+                color: white;
+                font-size: xx-large;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                border: none;
+                cursor: pointer;
+              }
+              .mi {
+                background-color: #9f0202;
+                color: white;
+                font-size: xx-large;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                border: none;
+                cursor: pointer;
+              }
+              .deleteBtn {
+                background-color: black;
+                color: white;
+                border-radius: 10px;
+                border: none;
+                height: 30px;
+                height: 40px;
+                cursor: pointer;
+              }
+              .editBtn {
+                background-color: black;
+                color: antiquewhite;
+                border-radius: 10px;
+                border: none;
+                cursor: pointer;
+              }
+            }
+          }
         }
       }
-    }
-    .footer {
-      display: flex;
-      margin: auto;
-      height: 9vh;
-      justify-content: center;
     }
   }
 }
@@ -77,25 +179,26 @@
       font-weight: bold;
       font-size: 24px;
       text-align: center;
+      cursor: pointer;
     }
     .title {
       color: black;
       font-size: 12px;
     }
-    form{
+    form {
       display: flex;
       flex-direction: column;
       gap: 15px;
-      input{
+      input {
         padding: 15px;
         border: none;
         width: 250px;
         border-bottom: 1px solid black;
-        &::placeholder{
+        &::placeholder {
           color: rgb(175, 175, 175);
         }
       }
-      button{
+      button {
         background-color: black;
         border-radius: 10px;
         color: antiquewhite;
@@ -104,7 +207,7 @@
         bottom: none;
         cursor: pointer;
       }
-      label{
+      label {
         display: flex;
         align-items: center;
         gap: 10px;
@@ -112,7 +215,7 @@
         font-size: 12px;
         cursor: pointer;
 
-        img{
+        img {
           width: 32px;
         }
       }

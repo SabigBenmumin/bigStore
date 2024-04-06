@@ -1,11 +1,46 @@
-import { doc, setDoc } from "firebase/firestore";
-import { v4 as uuid } from "uuid";
-import { db } from "./firebase";
+import { Timestamp, doc, setDoc } from "firebase/firestore";
+import { db, storage } from "./firebase";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
-export const createItem = (item) => {
-  setDoc(doc(db, "items", uuid()), {
-    name: item.name,
-    price: item.price,
-    instock: item.countStock,
+export const createItem = async (item) => {
+  const i_id = item._id;
+  const i_collection = item.item_collection;
+  const name = item.name;
+  const price = item.price;
+  const instock = item.countStock;
+  const img = item.file;
+
+  const imgRef = ref(storage, name);
+
+  const downloadURL = "";
+
+  await uploadBytes(imgRef, img);
+
+  await getDownloadURL(imgRef)
+    .then((url) => {
+      setDoc(doc(db, "items", i_id), {
+        i_id,
+        name,
+        i_collection,
+        price,
+        instock,
+        photoURL: url,
+        created: Timestamp.now(),
+      });
+    })
+    .catch((error) => {
+      console.log("error kub");
+    });
+
+  /*
+  await setDoc(doc(db, "items", i_id), {
+    i_id,
+    name,
+    i_collection,
+    price,
+    instock,
+    photoURL: downloadURL,
+    created: Timestamp.now()
   });
+  */
 };

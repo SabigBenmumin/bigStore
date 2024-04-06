@@ -17,7 +17,6 @@ const Home = () => {
         <div className="content">
           <CardsContainer />
         </div>
-        <div className="footer"></div>
       </div>
     </div>
   );
